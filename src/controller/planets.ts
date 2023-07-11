@@ -13,6 +13,7 @@ let planets = [
     {id:2, name: "Mars"}
 ];
 
+
 const getAll = (req: Request, res: Response)=>{
     res.status(200)
 }
