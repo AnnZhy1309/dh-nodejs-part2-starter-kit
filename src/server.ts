@@ -2,6 +2,8 @@ import express from "express";
 import {Request, Response } from "express";
 import 'express-async-errors'
 import morgan from 'morgan';
+import { getAll, getOneById, create, updateById, deleteById } from "./controller/planets";
+import { unzipSync } from "zlib";
 
 const app = express();
 const port = 3000;
@@ -9,21 +11,11 @@ const port = 3000;
 app.use(morgan("dev"));
 app.use(express.json());
 
-type Planet = {
-    id: number,
-    name: string,
-};
-
-type Planets = Planet[];
-
-let planets = [
-    {id: 1, name: "Earth"},
-    {id:2, name: "Mars"}
-];
-
-app.get('/api/planets', (req: Request, res: Response) => {
-  res.status(200).json(planets)
-});
+app.get('/api/planets', getAll);
+app.get('/api/planets', getOneById);
+app.post('/api/planets', create);
+app.put('/api/planets', updateById);
+app.delete('/api/planets', deleteById);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
