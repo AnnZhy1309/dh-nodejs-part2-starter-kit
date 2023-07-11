@@ -27,6 +27,7 @@ const create = (req: Request, res: Response) =>{
     const {id, name}=req.body;
     const newPlanet = {id, name};
     planets = [...planets, newPlanet];
+    res.status(200).json(planets);
 }
 const updateById = (req: Request, res: Response) =>{
     const {id} = req.params;

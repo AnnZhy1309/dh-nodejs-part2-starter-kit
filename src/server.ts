@@ -1,5 +1,5 @@
 import express from "express";
-import 'express-async-errors'
+import 'express-async-errors';
 import morgan from 'morgan';
 import { getAll, getOneById, create, updateById, deleteById } from "./controller/planets";
 
