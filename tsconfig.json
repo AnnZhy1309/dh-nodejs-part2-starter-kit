@@ -1,9 +1,9 @@
 {
-  "extends": "@tsconfig/node18/tsconfig.json",
   "compilerOptions": {
     "strict": true,
     "outDir": "./dist",
     "module": "es6",
+    "allowSyntheticDefaultImports": true,
     "target": "ES6"
   },
   "include": ["./src/**/*.ts"],
